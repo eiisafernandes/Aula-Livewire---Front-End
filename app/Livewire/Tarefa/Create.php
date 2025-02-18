@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Tarefa;
 
+use App\Models\Tarefa;
 use Livewire\Component;
 
 class Create extends Component
@@ -15,8 +16,14 @@ class Create extends Component
     {
         return view('livewire.tarefa.create');
     }
-
+    
     public function store (){
-        dd($this->nome, $this->data_hora, $this->descricao);
+        Tarefa::create([
+            'nome' => $this->nome,
+            'data_hora' => $this->data_hora,
+            'descricao' => $this->descricao
+        ]);
+
+        session()->flash('success', 'Cadastro Realizado com Sucesso!');
     }
 }
