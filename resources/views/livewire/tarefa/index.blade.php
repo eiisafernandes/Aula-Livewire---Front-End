@@ -24,6 +24,9 @@
                                     data-bs-target="#editModal" wire:click="abrirModalEdicao ({{ $t->id }})">Editar</button>
                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal" wire:click="abrirModalExclusao({{ $t->id }})">Excluir</button>
+
+                                    {{-- função route chama uma rota pelo nome --}}
+                                    <a href="{{ route('tarefa.editar', ['id' => $t->id]) }}" class="btn btn-info btn-sm">Editar Sem Modal</a>
                             </td>
                         </tr>
                     @endforeach
